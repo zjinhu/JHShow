@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHShow'
-  s.version          = '0.4.0'
+  s.version          = '0.9.0'
   s.summary          = '轻松展示Toast以及loading.'
  
   s.description      = <<-DESC
