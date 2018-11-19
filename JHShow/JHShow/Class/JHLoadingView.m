@@ -26,12 +26,10 @@ static JHLoadingView *loading;
     return loading;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)init{
+    if (self = [super init]) {
         self.backgroundColor = [JHShowConfig shared].loadingBgColor;
-        
         //------- loading imageView -------//
-        
         UIView *bgView = [[UIView alloc] init];
         [self addSubview:bgView];
         bgView.backgroundColor = [JHShowConfig shared].loadingTintColor;

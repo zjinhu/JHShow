@@ -29,6 +29,7 @@ SingletonM(JHShowConfig)
         _toastSpace = 5;
         _toastTextFont= [UIFont systemFontOfSize:15];
         _toastBgColor= [UIColor blackColor];
+        _toastShadowColor= [UIColor clearColor];
         _toastTextColor= [UIColor whiteColor];
         _toastType = JHImageButtonTypeTop;
     }

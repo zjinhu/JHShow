@@ -21,7 +21,8 @@
     config.loadingImagesArray = [self getImageArray];
     config.loadingType = JHImageButtonTypeRight;
     config.toastType = JHImageButtonTypeBottom;
-//    config.loadingShadowColor = [UIColor redColor];
+    config.loadingShadowColor = [UIColor redColor];
+    config.toastShadowColor = [UIColor purpleColor];
     
     // Do any additional setup after loading the view, typically from a nib.
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -87,7 +88,7 @@
 -(NSMutableArray *)getImageArray{
     NSMutableArray *array = [NSMutableArray array];
     for (NSInteger i = 0; i<15; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"icon_kangaroo_global_loading_%d",i];
+        NSString *imageName = [NSString stringWithFormat:@"icon_kangaroo_global_loading_%ld",(long)i];
         [array addObject:[UIImage imageNamed:imageName]];
     }
     return array;

@@ -16,6 +16,7 @@
 		91E02A9621A25A9D00C96841 /* JHShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A9521A25A9D00C96841 /* JHShow.m */; };
 		91E02A9921A261C700C96841 /* JHLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A9821A261C700C96841 /* JHLoadingView.m */; };
 		91E02A9C21A2A52800C96841 /* JHShowConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A9B21A2A52800C96841 /* JHShowConfig.m */; };
+		91E02A9F21A2C20000C96841 /* JHToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A9E21A2C20000C96841 /* JHToastView.m */; };
 		CE73C82F025BEF247941900C /* Pods_JHShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D08D1B603346DB340BE527 /* Pods_JHShow.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		91E02A9821A261C700C96841 /* JHLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHLoadingView.m; sourceTree = "<group>"; };
 		91E02A9A21A2A52800C96841 /* JHShowConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHShowConfig.h; sourceTree = "<group>"; };
 		91E02A9B21A2A52800C96841 /* JHShowConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHShowConfig.m; sourceTree = "<group>"; };
+		91E02A9D21A2C20000C96841 /* JHToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHToastView.h; sourceTree = "<group>"; };
+		91E02A9E21A2C20000C96841 /* JHToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHToastView.m; sourceTree = "<group>"; };
 		C02269592CA75DFC302C8AFE /* Pods-JHShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHShow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHShow/Pods-JHShow.debug.xcconfig"; sourceTree = "<group>"; };
 		D47511782D1EC00FF9E54533 /* Pods-JHShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHShow.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHShow/Pods-JHShow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,8 @@
 			children = (
 				91E02A9421A25A9D00C96841 /* JHShow.h */,
 				91E02A9521A25A9D00C96841 /* JHShow.m */,
+				91E02A9D21A2C20000C96841 /* JHToastView.h */,
+				91E02A9E21A2C20000C96841 /* JHToastView.m */,
 				91E02A9721A261C700C96841 /* JHLoadingView.h */,
 				91E02A9821A261C700C96841 /* JHLoadingView.m */,
 				91E02A9A21A2A52800C96841 /* JHShowConfig.h */,
@@ -236,6 +241,7 @@
 				91E02A9921A261C700C96841 /* JHLoadingView.m in Sources */,
 				91E02A8D21A258DA00C96841 /* main.m in Sources */,
 				91E02A9621A25A9D00C96841 /* JHShow.m in Sources */,
+				91E02A9F21A2C20000C96841 /* JHToastView.m in Sources */,
 				91E02A7F21A258D800C96841 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

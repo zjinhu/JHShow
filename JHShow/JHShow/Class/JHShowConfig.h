@@ -73,6 +73,8 @@ SingletonH
 @property (nonatomic,strong) UIFont *toastTextFont;
 /** Toast背景颜色 **/
 @property (nonatomic,strong) UIColor *toastBgColor;
+/** 阴影颜色 **/
+@property (nonatomic,strong) UIColor *toastShadowColor;
 /**  Toast文字字体颜色 **/
 @property (nonatomic,strong) UIColor *toastTextColor;
 /** Toast图文混排样式 **/
