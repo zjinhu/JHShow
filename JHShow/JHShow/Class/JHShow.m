@@ -10,10 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <Masonry/Masonry.h>
-
+#import <JHButton/JHButton.h>
 #import "JHShow.h"
-
-#import "JHButton.h"
 #import "JHLoadingView.h"
 #import "JHShowConfig.h"
 @implementation JHShow

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary          = '轻松展示Toast以及loading.'
  
   s.description      = <<-DESC
-							图文按钮.
+							图文Toast、Loading.
                        DESC
 
   s.homepage         = 'https://github.com/jackiehu/' 

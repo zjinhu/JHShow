@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "JHButton.h"
+#import <JHButton/JHButton.h>
 // .h
 #define SingletonH  + (instancetype)shared ;
 // .m

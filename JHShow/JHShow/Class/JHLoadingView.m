@@ -8,7 +8,7 @@
 
 #import "JHLoadingView.h"
 #import <Masonry/Masonry.h>
-#import "JHButton.h"
+#import <JHButton/JHButton.h>
 #import "JHShowConfig.h"
 
 @interface JHLoadingView ()
