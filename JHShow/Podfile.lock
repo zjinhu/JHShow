@@ -1,0 +1,21 @@
+PODS:
+  - JHButton (0.4.0):
+    - Masonry
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - JHButton
+  - Masonry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - JHButton
+    - Masonry
+
+SPEC CHECKSUMS:
+  JHButton: 33d1ee3b58d5f2f977c9f58b3dc9ac21c1dd4070
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 8f3b5122156bba13e370d16621737349ae3cff7e
+
+COCOAPODS: 1.5.2
