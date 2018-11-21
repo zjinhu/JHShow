@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9195BFA021A3B98200D0B1F2 /* JHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9195BF9F21A3B98200D0B1F2 /* JHPopView.m */; };
 		91E02A7F21A258D800C96841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A7E21A258D800C96841 /* AppDelegate.m */; };
 		91E02A8221A258D800C96841 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A8121A258D800C96841 /* ViewController.m */; };
 		91E02A8521A258D800C96841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E02A8321A258D800C96841 /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		26D08D1B603346DB340BE527 /* Pods_JHShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9195BF9E21A3B98200D0B1F2 /* JHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPopView.h; sourceTree = "<group>"; };
+		9195BF9F21A3B98200D0B1F2 /* JHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPopView.m; sourceTree = "<group>"; };
 		91E02A7A21A258D800C96841 /* JHShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E02A7D21A258D800C96841 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		91E02A7E21A258D800C96841 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 			children = (
 				91E02A9421A25A9D00C96841 /* JHShow.h */,
 				91E02A9521A25A9D00C96841 /* JHShow.m */,
+				9195BF9E21A3B98200D0B1F2 /* JHPopView.h */,
+				9195BF9F21A3B98200D0B1F2 /* JHPopView.m */,
 				91E02A9D21A2C20000C96841 /* JHToastView.h */,
 				91E02A9E21A2C20000C96841 /* JHToastView.m */,
 				91E02A9721A261C700C96841 /* JHLoadingView.h */,
@@ -238,6 +243,7 @@
 			files = (
 				91E02A9C21A2A52800C96841 /* JHShowConfig.m in Sources */,
 				91E02A8221A258D800C96841 /* ViewController.m in Sources */,
+				9195BFA021A3B98200D0B1F2 /* JHPopView.m in Sources */,
 				91E02A9921A261C700C96841 /* JHLoadingView.m in Sources */,
 				91E02A8D21A258DA00C96841 /* main.m in Sources */,
 				91E02A9621A25A9D00C96841 /* JHShow.m in Sources */,

@@ -9,14 +9,21 @@
 #import "ViewController.h"
 #import "JHShow.h"
 #import "JHShowConfig.h"
-@interface ViewController ()
+#import "JHPopView.h"
 
+@interface ViewController ()
+@property (nonatomic ,strong) UIView *popView;
+@property (nonatomic ,strong) UIView *coverView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
+
+    
     JHShowConfig *config = [JHShowConfig shared];
     config.loadingImagesArray = [self getImageArray];
     config.loadingType = JHImageButtonTypeRight;
@@ -61,6 +68,20 @@
     [btn5 setTitle:@"toast image" forState:UIControlStateNormal];
     [btn5 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    UIButton *btn6 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:btn6];
+    btn6.tag = 6;
+    btn6.frame = CGRectMake(160, 300, 100, 44);
+    [btn6 setTitle:@"pop" forState:UIControlStateNormal];
+    [btn6 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *btn7 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:btn7];
+    btn7.tag = 7;
+    btn7.frame = CGRectMake(160, 350, 100, 44);
+    [btn7 setTitle:@"pop" forState:UIControlStateNormal];
+    [btn7 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
 }
 - (void)backButtonClicked:(UIButton *)btn {
 
@@ -80,6 +101,19 @@
         case 5:
             [JHShow showText:@"qweqweqwe" withImage:[UIImage imageNamed:@"icon_kangaroo_global_loading_0"]];
             break;
+        case 6:{
+//            [JHPopView popContentView:self.popView animated:YES];
+            [JHShow showPopView:self.coverView showType:PopViewShowTypeRight clickOutHidden:YES hideBlock:^{
+                NSLog(@"123123");
+            }];
+            break;}
+        case 7:{
+            
+            [JHShow showPopViewCenter:self.popView animsted:YES clickOutHidden:YES hideBlock:^{
+                NSLog(@"123");
+            }];
+
+            break;}
         default:
             break;
     }
@@ -93,4 +127,20 @@
     }
     return array;
 }
+
+-(UIView *)popView{
+    if (!_popView) {
+        _popView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+        _popView.backgroundColor = UIColor.purpleColor;
+    }
+    return _popView;
+}
+-(UIView *)coverView{
+    if (!_coverView) {
+        _coverView = [[UIView alloc] initWithFrame:CGRectMake(10, 60, 300, 100)];
+        _coverView.backgroundColor = UIColor.yellowColor;
+    }
+    return _coverView;
+}
+
 @end

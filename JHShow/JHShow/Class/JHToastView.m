@@ -26,8 +26,8 @@
         bgView.layer.cornerRadius = [JHShowConfig shared].toastCornerRadius;
         if ([JHShowConfig shared].toastShadowColor!=[UIColor clearColor]) {
             bgView.layer.shadowColor = [JHShowConfig shared].toastShadowColor.CGColor;
-            bgView.layer.shadowOpacity = 0.5f;
-            bgView.layer.shadowRadius = 5.f;
+            bgView.layer.shadowOpacity = [JHShowConfig shared].toastShadowOpacity;
+            bgView.layer.shadowRadius = [JHShowConfig shared].toastShadowRadius;
             bgView.layer.shadowOffset = CGSizeZero;
         }
         [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -44,12 +44,12 @@
 
         // 设置label的约束
         [_toastButton.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_lessThanOrEqualTo(200);
+            make.width.mas_lessThanOrEqualTo([JHShowConfig shared].toastMaxWidth);
         }];
         
         [_toastButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.equalTo(_toastButton.superview).offset(10);
-            make.bottom.right.equalTo(_toastButton.superview).offset(-10);
+            make.top.left.equalTo(_toastButton.superview).offset([JHShowConfig shared].toastPadding);
+            make.bottom.right.equalTo(_toastButton.superview).offset(-[JHShowConfig shared].toastPadding);
         }];
     }
     return self;

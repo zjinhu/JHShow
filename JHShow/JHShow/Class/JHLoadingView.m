@@ -36,8 +36,8 @@ static JHLoadingView *loading;
         bgView.layer.cornerRadius = [JHShowConfig shared].loadingCornerRadius;
         if ([JHShowConfig shared].loadingShadowColor!=[UIColor clearColor]) {
             bgView.layer.shadowColor = [JHShowConfig shared].loadingShadowColor.CGColor;
-            bgView.layer.shadowOpacity = 0.5f;
-            bgView.layer.shadowRadius = 5.f;
+            bgView.layer.shadowOpacity = [JHShowConfig shared].loadingShadowOpacity;
+            bgView.layer.shadowRadius = [JHShowConfig shared].loadingShadowRadius;
             bgView.layer.shadowOffset = CGSizeZero;
         }
         // 设置背景view的约束
@@ -69,12 +69,12 @@ static JHLoadingView *loading;
         
         // 设置label的约束
         [_loadingButton.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_lessThanOrEqualTo(130);
+            make.width.mas_lessThanOrEqualTo([JHShowConfig shared].loadingMaxWidth);
         }];
         
         [_loadingButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.equalTo(_loadingButton.superview).offset(10);
-            make.bottom.right.equalTo(_loadingButton.superview).offset(-10);
+            make.top.left.equalTo(_loadingButton.superview).offset([JHShowConfig shared].loadingPadding);
+            make.bottom.right.equalTo(_loadingButton.superview).offset(-[JHShowConfig shared].loadingPadding);
         }];
     }
     return self;

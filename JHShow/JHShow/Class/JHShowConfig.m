@@ -15,14 +15,18 @@ SingletonM(JHShowConfig)
 - (instancetype)init{
     if (self = [super init]) {
         ///////////loading/////////////
+        _loadingMaxWidth = 130;
         _loadingCornerRadius = 5;
         _loadingTintColor= [UIColor whiteColor];
         _loadingTextFont= [UIFont systemFontOfSize:15];
         _loadingTextColor= [UIColor blackColor];
         _loadingShadowColor= [UIColor clearColor];
+        _loadingShadowOpacity =0.5;
+        _loadingShadowRadius = 5;
         _loadingBgColor= [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
         _loadingAnimationTime = 0.5;
         _loadingType = JHImageButtonTypeTop;
+        _loadingPadding = 10;
         ////////////toast////////////////
         _toastShowTime =2;
         _toastCornerRadius = 5;
@@ -30,8 +34,13 @@ SingletonM(JHShowConfig)
         _toastTextFont= [UIFont systemFontOfSize:15];
         _toastBgColor= [UIColor blackColor];
         _toastShadowColor= [UIColor clearColor];
+        _toastShadowOpacity = 0.5;
+        _toastShadowRadius = 5;
         _toastTextColor= [UIColor whiteColor];
         _toastType = JHImageButtonTypeTop;
+        _toastMaxWidth = 200;
+        _toastPadding = 10;
+        
     }
     return self ;
 }

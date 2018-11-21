@@ -44,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 SingletonH
 
 ///////////loading/////////////
+/** loading最大宽度 **/
+@property (nonatomic,assign) CGFloat loadingMaxWidth;
 /** 圆角大小 **/
 @property (nonatomic,assign) CGFloat loadingCornerRadius;
 /** 加载框主体颜色 **/
@@ -54,15 +56,21 @@ SingletonH
 @property (nonatomic,strong) UIColor *loadingTextColor;
 /** 背景颜色 **/
 @property (nonatomic,strong) UIColor *loadingBgColor;
-/** 阴影颜色 **/
+/** 阴影 **/
 @property (nonatomic,strong) UIColor *loadingShadowColor;
+@property (nonatomic,assign) CGFloat loadingShadowOpacity;
+@property (nonatomic,assign) CGFloat loadingShadowRadius;
 /** 图片动画类型 所需要的图片数组 **/
 @property (nonatomic,strong) NSArray <UIImage *> *loadingImagesArray;
 /** 动画时间 **/
 @property (nonatomic,assign) CGFloat loadingAnimationTime;
 /** loading图文混排样式 **/
 @property (nonatomic,assign) JHImageButtonType loadingType;
+/** loading背景与内容之间的内边距 **/
+@property (nonatomic,assign) CGFloat loadingPadding;
 ////////////toast////////////////
+/** Toast最大宽度 **/
+@property (nonatomic,assign) CGFloat toastMaxWidth;
 /** Toast默认停留时间 **/
 @property (nonatomic,assign) CGFloat toastShowTime;
 /** Toast圆角 **/
@@ -73,12 +81,16 @@ SingletonH
 @property (nonatomic,strong) UIFont *toastTextFont;
 /** Toast背景颜色 **/
 @property (nonatomic,strong) UIColor *toastBgColor;
-/** 阴影颜色 **/
+/** 阴影 **/
 @property (nonatomic,strong) UIColor *toastShadowColor;
+@property (nonatomic,assign) CGFloat toastShadowOpacity;
+@property (nonatomic,assign) CGFloat toastShadowRadius;
 /**  Toast文字字体颜色 **/
 @property (nonatomic,strong) UIColor *toastTextColor;
 /** Toast图文混排样式 **/
 @property (nonatomic,assign) JHImageButtonType toastType;
+/** Toast背景与内容之间的内边距 **/
+@property (nonatomic,assign) CGFloat toastPadding;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JHPopView.h"
+
+typedef void(^hideBlock)(void);
 
 @interface JHShow : NSObject
 #pragma mark-Toast
@@ -38,5 +41,19 @@
  @param text 说明信息
  */
 + (void)showLoadingEventText:(NSString *)text;
+
+#pragma mark - popview
+
++(void)showPopViewCenter:(UIView *)contentView
+                animsted:(BOOL)animsted
+          clickOutHidden:(BOOL)clickOutHidden
+               hideBlock:(hideBlock)hideBlock;
+
++(void)showPopView:(UIView *)contentView
+                showType:(PopViewShowType)showType
+          clickOutHidden:(BOOL)clickOutHidden
+               hideBlock:(hideBlock)hideBlock;
+
++ (void)hidenPopView;
 @end
 

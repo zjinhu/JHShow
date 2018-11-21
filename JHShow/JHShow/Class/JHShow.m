@@ -115,4 +115,29 @@
     [JHShow showLoadingText:text enableEvent:YES];
 }
 
+
+#pragma mark - popview
+
++(void)showPopViewCenter:(UIView *)contentView
+                animsted:(BOOL)animsted
+          clickOutHidden:(BOOL)clickOutHidden
+               hideBlock:(hideBlock)hideBlock{
+    JHPopView *popView = [JHPopView popContentView:contentView animated:animsted];
+    popView.clickOutHidden = clickOutHidden;
+    popView.hiddenPop = hideBlock;
+}
+
++(void)showPopView:(UIView *)contentView
+                showType:(PopViewShowType)showType
+          clickOutHidden:(BOOL)clickOutHidden
+               hideBlock:(hideBlock)hideBlock{
+    JHPopView *popView = [JHPopView popContentView:contentView withShowType:showType];
+    popView.clickOutHidden = clickOutHidden;
+    popView.hiddenPop = hideBlock;
+}
+
++ (void)hidenPopView{
+    [JHPopView hidenPopView];
+}
+
 @end
