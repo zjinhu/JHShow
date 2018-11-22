@@ -5,16 +5,13 @@
 //  Created by 狄烨 . on 2018/11/19.
 //  Copyright © 2018 狄烨 . All rights reserved.
 //
-
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 #import <Masonry/Masonry.h>
-#import <JHButton/JHButton.h>
 #import "JHShow.h"
 #import "JHToastView.h"
 #import "JHLoadingView.h"
 #import "JHShowConfig.h"
+
 @implementation JHShow
 
 +(UIWindow *)window{

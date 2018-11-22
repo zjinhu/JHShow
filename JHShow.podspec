@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
  
   s.platform         = :ios, "9.0"
   s.ios.deployment_target = "9.0"
+  s.public_header_files = "JHShow/JHShow/Class/JHShow.h"
   s.source_files = 'JHShow/JHShow/Class/**/*.{h,m}'
   s.frameworks   = "UIKit", "Foundation" #支持的框架
   s.requires_arc        = true
