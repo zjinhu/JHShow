@@ -102,16 +102,10 @@
             [JHShow showText:@"qweqweqwe" withImage:[UIImage imageNamed:@"icon_kangaroo_global_loading_0"]];
             break;
         case 6:{
-//            [JHPopView popContentView:self.popView animated:YES];
-            [JHShow showPopView:self.coverView showType:PopViewShowTypeRight clickOutHidden:YES hideBlock:^{
-                NSLog(@"123123");
-            }];
+            [JHShow showPopView:self.coverView showType:PopViewShowTypeRight];
             break;}
         case 7:{
-            
-            [JHShow showPopViewCenter:self.popView animsted:YES clickOutHidden:YES hideBlock:^{
-                NSLog(@"123");
-            }];
+            [JHShow showPopViewCenter:self.popView animsted:YES];
 
             break;}
         default:
