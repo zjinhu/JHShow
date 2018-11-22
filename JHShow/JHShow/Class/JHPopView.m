@@ -64,8 +64,8 @@ static const CGFloat animationTime = 0.25;
         _hideFrame = CGRectMake(-CGRectGetWidth(_contentFrame), _contentFrame.origin.y, CGRectGetWidth(_contentFrame), CGRectGetHeight(_contentFrame));
     }
     if (_showType == PopViewShowTypeRight) {
-        _showFrame = CGRectMake(_contentFrame.origin.x, _contentFrame.origin.y, CGRectGetWidth(_contentFrame), CGRectGetHeight(_contentFrame));
-        _hideFrame = CGRectMake(CGRectGetWidth(_contentFrame), _contentFrame.origin.y, CGRectGetWidth(_contentFrame), CGRectGetHeight(_contentFrame));
+        _showFrame = CGRectMake(CGRectGetWidth(self.frame)-CGRectGetWidth(_contentFrame), _contentFrame.origin.y, CGRectGetWidth(_contentFrame), CGRectGetHeight(_contentFrame));
+        _hideFrame = CGRectMake(CGRectGetWidth(self.frame), _contentFrame.origin.y, CGRectGetWidth(_contentFrame), CGRectGetHeight(_contentFrame));
     }
     self.popContainerView.frame = _hideFrame;
 }
