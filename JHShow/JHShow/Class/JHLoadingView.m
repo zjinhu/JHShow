@@ -9,22 +9,14 @@
 #import "JHLoadingView.h"
 #import <Masonry/Masonry.h>
 #import <JHButton/JHButton.h>
-#import "JHShowConfig.h"
 
 @interface JHLoadingView ()
 @property (nonatomic,strong)JHButton *loadingButton;
 @end
 
-static JHLoadingView *loading;
-
 @implementation JHLoadingView
 
-+ (instancetype)shareLoading {
-    if (loading == nil) {
-        loading = [[JHLoadingView alloc] init];
-    }
-    return loading;
-}
+SingletonM(JHLoadingView)
 
 - (instancetype)init{
     if (self = [super init]) {

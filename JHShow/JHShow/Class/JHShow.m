@@ -67,11 +67,11 @@
  @param isEnable YES:允许 NO:禁止
  */
 + (void)loadingEnableEvent:(BOOL)isEnable{
-    [JHLoadingView shareLoading].userInteractionEnabled = !isEnable;
+    [JHLoadingView shared].userInteractionEnabled = !isEnable;
 }
 /** 移除loading图 */
 + (void)hidenLoading{
-    [[JHLoadingView shareLoading] removeFromSuperview];
+    [[JHLoadingView shared] removeFromSuperview];
 }
 
 /**
@@ -80,9 +80,9 @@
  默认无交互
  */
 + (void)showLoadingText:(NSString *)text{
-    [[self window] addSubview:[JHLoadingView shareLoading]];
-    [JHLoadingView shareLoading].text = text;
-    [[JHLoadingView shareLoading] mas_makeConstraints:^(MASConstraintMaker *make) {
+    [[self window] addSubview:[JHLoadingView shared]];
+    [JHLoadingView shared].text = text;
+    [[JHLoadingView shared] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
