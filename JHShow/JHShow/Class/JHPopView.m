@@ -90,10 +90,6 @@ static const CGFloat animationTime = 0.25;
     return _popContainerView;
 }
 
--(void)dealloc{
-    NSLog(@"释放了");
-}
-
 #pragma mark - 类方法
 
 +(UIWindow *)window{

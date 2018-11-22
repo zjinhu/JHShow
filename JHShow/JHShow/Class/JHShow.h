@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "JHPopView.h"
 
-typedef void(^hideBlock)(void);
-
 @interface JHShow : NSObject
 #pragma mark-Toast
 /** 纯文本toast提示 */
@@ -44,15 +42,11 @@ typedef void(^hideBlock)(void);
 
 #pragma mark - popview
 
-+(void)showPopViewCenter:(UIView *)contentView
-                animsted:(BOOL)animsted
-          clickOutHidden:(BOOL)clickOutHidden
-               hideBlock:(hideBlock)hideBlock;
++ (JHPopView *)showPopViewCenter:(UIView *)contentView
+                animsted:(BOOL)animsted;
 
-+(void)showPopView:(UIView *)contentView
-                showType:(PopViewShowType)showType
-          clickOutHidden:(BOOL)clickOutHidden
-               hideBlock:(hideBlock)hideBlock;
++ (JHPopView *)showPopView:(UIView *)contentView
+                showType:(PopViewShowType)showType;
 
 + (void)hidenPopView;
 @end

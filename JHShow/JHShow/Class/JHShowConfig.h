@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 SingletonH
 
-///////////loading/////////////
+#pragma mark - ///////////loading/////////////
 /** loading最大宽度 **/
 @property (nonatomic,assign) CGFloat loadingMaxWidth;
 /** 圆角大小 **/
@@ -68,7 +68,7 @@ SingletonH
 @property (nonatomic,assign) JHImageButtonType loadingType;
 /** loading背景与内容之间的内边距 **/
 @property (nonatomic,assign) CGFloat loadingPadding;
-////////////toast////////////////
+#pragma mark - ////////////toast////////////////
 /** Toast最大宽度 **/
 @property (nonatomic,assign) CGFloat toastMaxWidth;
 /** Toast默认停留时间 **/
@@ -91,6 +91,7 @@ SingletonH
 @property (nonatomic,assign) JHImageButtonType toastType;
 /** Toast背景与内容之间的内边距 **/
 @property (nonatomic,assign) CGFloat toastPadding;
+
 @end
 
 NS_ASSUME_NONNULL_END
