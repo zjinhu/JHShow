@@ -67,7 +67,10 @@ SingletonH
 /** loading图文混排样式 **/
 @property (nonatomic,assign) JHImageButtonType loadingType;
 /** loading背景与内容之间的内边距 **/
-@property (nonatomic,assign) CGFloat loadingPadding;
+@property (nonatomic,assign) CGFloat loadingVerticalPadding;
+@property (nonatomic,assign) CGFloat loadingHorizontalPadding;
+/** loading文字与图片之间的距 **/
+@property (nonatomic,assign) CGFloat loadingSpace;
 #pragma mark - ////////////toast////////////////
 /** Toast最大宽度 **/
 @property (nonatomic,assign) CGFloat toastMaxWidth;

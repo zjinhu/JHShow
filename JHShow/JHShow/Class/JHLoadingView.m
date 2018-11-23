@@ -37,7 +37,7 @@ SingletonM(JHLoadingView)
             make.center.equalTo(bgView.superview);
         }];
         
-        _loadingButton = [[JHButton alloc] initWithType:[JHShowConfig shared].loadingType AndMarginArr:@[@0]];
+        _loadingButton = [[JHButton alloc] initWithType:[JHShowConfig shared].loadingType AndMarginArr:@[[NSNumber numberWithFloat:[JHShowConfig shared].loadingSpace]]];
         _loadingButton.backgroundColor = [UIColor clearColor];
         
         NSAssert([JHShowConfig shared].loadingImagesArray, @"you should set a image array!") ;
@@ -65,8 +65,10 @@ SingletonM(JHLoadingView)
         }];
         
         [_loadingButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.equalTo(_loadingButton.superview).offset([JHShowConfig shared].loadingPadding);
-            make.bottom.right.equalTo(_loadingButton.superview).offset(-[JHShowConfig shared].loadingPadding);
+            make.top.equalTo(_loadingButton.superview).offset([JHShowConfig shared].loadingVerticalPadding);
+            make.left.equalTo(_loadingButton.superview).offset([JHShowConfig shared].loadingHorizontalPadding);
+            make.bottom.equalTo(_loadingButton.superview).offset(-[JHShowConfig shared].loadingVerticalPadding);
+            make.right.equalTo(_loadingButton.superview).offset(-[JHShowConfig shared].loadingHorizontalPadding);
         }];
     }
     return self;

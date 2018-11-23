@@ -23,10 +23,12 @@ SingletonM(JHShowConfig)
         _loadingShadowColor= [UIColor clearColor];
         _loadingShadowOpacity =0.5;
         _loadingShadowRadius = 5;
-        _loadingBgColor= [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
+        _loadingBgColor= [[UIColor blackColor] colorWithAlphaComponent:0.2];
         _loadingAnimationTime = 0.5;
         _loadingType = JHImageButtonTypeTop;
-        _loadingPadding = 10;
+        _loadingVerticalPadding = 10;
+        _loadingHorizontalPadding = 10;
+        _loadingSpace = 0;
         ////////////toast////////////////
         _toastShowTime =2;
         _toastCornerRadius = 5;
