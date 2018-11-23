@@ -40,14 +40,27 @@ SingletonM(JHLoadingView)
         _loadingButton = [[JHButton alloc] initWithType:[JHShowConfig shared].loadingType AndMarginArr:@[[NSNumber numberWithFloat:[JHShowConfig shared].loadingSpace]]];
         _loadingButton.backgroundColor = [UIColor clearColor];
         
-        NSAssert([JHShowConfig shared].loadingImagesArray, @"you should set a image array!") ;
-        UIImage *image = [JHShowConfig shared].loadingImagesArray.firstObject;
-        _loadingButton.image = image;
-        _loadingButton.imageView.animationImages = [JHShowConfig shared].loadingImagesArray;
-        _loadingButton.imageView.animationDuration = [JHShowConfig shared].loadingAnimationTime;
-        _loadingButton.imageView.animationRepeatCount = 0;
-        [_loadingButton.imageView startAnimating];
-        
+        if ([JHShowConfig shared].loadingImagesArray.count>0) {
+            UIImage *image = [JHShowConfig shared].loadingImagesArray.firstObject;
+            _loadingButton.image = image;
+            _loadingButton.imageView.animationImages = [JHShowConfig shared].loadingImagesArray;
+            _loadingButton.imageView.animationDuration = [JHShowConfig shared].loadingAnimationTime;
+            _loadingButton.imageView.animationRepeatCount = 0;
+            [_loadingButton.imageView startAnimating];
+        }else{
+          UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            activityIndicatorView.color = [JHShowConfig shared].activityColor;
+            CGAffineTransform transform = CGAffineTransformMakeScale(1.2f, 1.2f);
+            activityIndicatorView.transform = transform;
+            [activityIndicatorView startAnimating];
+            [_loadingButton.imageView addSubview:activityIndicatorView];
+            
+            [activityIndicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.left.equalTo(activityIndicatorView.superview).offset(10);;
+                make.right.bottom.equalTo(activityIndicatorView.superview).offset(-10);
+            }];
+        }
+
         _loadingButton.contentLabel.textColor = [JHShowConfig shared].loadingTextColor;
         _loadingButton.contentLabel.font = [JHShowConfig shared].loadingTextFont;
         _loadingButton.contentLabel.numberOfLines = 0;

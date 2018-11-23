@@ -28,9 +28,9 @@
     config.loadingImagesArray = [self getImageArray];
     config.loadingType = JHImageButtonTypeRight;
     config.toastType = JHImageButtonTypeBottom;
-    config.loadingShadowColor = [UIColor redColor];
+    config.loadingTintColor = [UIColor yellowColor];
     config.toastShadowColor = [UIColor purpleColor];
-    
+    config.loadingType = JHImageButtonTypeTop;
     // Do any additional setup after loading the view, typically from a nib.
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.view addSubview:btn1];
@@ -87,7 +87,7 @@
 
     switch (btn.tag) {
         case 1:
-            [JHShow showLoadingEventText:@"asdfasdfasdfasdfads"];
+            [JHShow showLoadingEventText:@"正在加载"];
             break;
         case 2:
             [JHShow hidenLoading];

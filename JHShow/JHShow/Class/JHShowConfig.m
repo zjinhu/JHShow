@@ -20,6 +20,7 @@ SingletonM(JHShowConfig)
         _loadingTintColor= [UIColor whiteColor];
         _loadingTextFont= [UIFont systemFontOfSize:15];
         _loadingTextColor= [UIColor blackColor];
+        _activityColor = [UIColor blackColor];
         _loadingShadowColor= [UIColor clearColor];
         _loadingShadowOpacity =0.5;
         _loadingShadowRadius = 5;
