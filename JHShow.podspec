@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHShow'
-  s.version          = '1.2.0'
+  s.version          = '1.2.1'
   s.summary          = '轻松展示Toast以及loading，添加普通弹窗以及模态方式弹窗.'
  
   s.description      = <<-DESC
@@ -27,8 +27,13 @@ Pod::Spec.new do |s|
    s.source_files =        'JHShow/JHShow/Class/*.{h,m}'
    
     s.subspec 'View' do |ss| 
+          ss.dependency 'JHShow/Config'
           ss.source_files          = 'JHShow/JHShow/Class/View/**/*' 
           ss.public_header_files   = 'JHShow/JHShow/Class/View/*.{h}'
+    end
+    s.subspec 'Config' do |ss| 
+          ss.source_files          = 'JHShow/JHShow/Class/Config/**/*' 
+          ss.public_header_files   = 'JHShow/JHShow/Class/Config/*.{h}'
     end
     s.subspec 'VC' do |ss| 
           ss.source_files          = 'JHShow/JHShow/Class/VC/**/*' 

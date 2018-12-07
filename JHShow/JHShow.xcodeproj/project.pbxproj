@@ -104,6 +104,15 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		9135A5C321BA464200B593B6 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				91E02A9A21A2A52800C96841 /* JHShowConfig.h */,
+				91E02A9B21A2A52800C96841 /* JHShowConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		91E02A7121A258D800C96841 = {
 			isa = PBXGroup;
 			children = (
@@ -142,14 +151,13 @@
 		91E02A9321A25A6000C96841 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				9135A5C321BA464200B593B6 /* Config */,
 				9135A5BC21BA413500B593B6 /* VC */,
 				9135A5BB21BA411200B593B6 /* View */,
 				91E02A9421A25A9D00C96841 /* JHShow.h */,
 				91E02A9521A25A9D00C96841 /* JHShow.m */,
 				9135A5C021BA418500B593B6 /* JHPresentation.h */,
 				9135A5C121BA418500B593B6 /* JHPresentation.m */,
-				91E02A9A21A2A52800C96841 /* JHShowConfig.h */,
-				91E02A9B21A2A52800C96841 /* JHShowConfig.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
