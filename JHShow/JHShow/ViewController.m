@@ -10,7 +10,7 @@
 #import "JHShow.h"
 #import "JHShowConfig.h"
 #import "JHPopView.h"
-
+#import "JHPresentation.h"
 @interface ViewController ()
 @property (nonatomic ,strong) UIView *popView;
 @property (nonatomic ,strong) UIView *coverView;
@@ -82,6 +82,12 @@
     [btn7 setTitle:@"pop" forState:UIControlStateNormal];
     [btn7 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
+    UIButton *btn8 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:btn8];
+    btn8.tag = 8;
+    btn8.frame = CGRectMake(160, 450, 100, 44);
+    [btn8 setTitle:@"pop" forState:UIControlStateNormal];
+    [btn8 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)backButtonClicked:(UIButton *)btn {
 
@@ -107,6 +113,17 @@
         case 7:{
             [JHShow showPopViewCenter:self.popView animsted:YES];
 
+            break;}
+        case 8:{
+            UITextView *redview = [[UITextView alloc] initWithFrame:CGRectMake(50, 90, 300, 200)];
+            redview.backgroundColor = [UIColor whiteColor];
+            redview.layer.cornerRadius = 10;
+            redview.layer.masksToBounds = YES;
+            redview.keyboardType = UIKeyboardTypeURL;
+            JHPresentation *pt =[JHPresentation showView:redview withShowType:PresentationTypeBottom];
+            pt.hiddenPresentation = ^{
+                
+            };
             break;}
         default:
             break;

@@ -10,23 +10,13 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger,PopViewShowType) {
-    /**
-     *  contentView位居PopView的顶部 默认动画也是从顶部开始
-     */
+    /** contentView位居PopView的顶部 默认动画也是从顶部开始*/
     PopViewShowTypeTop = 1,
-    
-    /**
-     *  contentView位居PopView的底部 默认动画也是从底部开始
-     */
+    /***  contentView位居PopView的底部 默认动画也是从底部开始*/
     PopViewShowTypeBottom,
-    
-    /**
-     *  contentView位居PopView的右边 默认动画也是从右边开始
-     */
+    /***  contentView位居PopView的右边 默认动画也是从右边开始*/
     PopViewShowTypeRight,
-    /**
-     *  contentView位居PopView的左边 默认动画也是从左边开始
-     */
+    /***  contentView位居PopView的左边 默认动画也是从左边开始*/
     PopViewShowTypeLeft
 };
 NS_ASSUME_NONNULL_BEGIN

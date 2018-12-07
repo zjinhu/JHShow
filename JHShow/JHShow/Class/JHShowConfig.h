@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <JHButton/JHButton.h>
+
 // .h
 #define SingletonH  + (instancetype)shared ;
 // .m
@@ -36,6 +37,10 @@ return _showInstance; \
 - (id)mutableCopyWithZone:(NSZone *)zone{ \
 return _showInstance; \
 } \
+
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define iPhoneX     (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height >= 812)  //iPhoneX刘海系列
+#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
 
 NS_ASSUME_NONNULL_BEGIN
 

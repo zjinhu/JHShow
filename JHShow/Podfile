@@ -11,4 +11,5 @@ target 'JHShow' do
   # Pods for JHShow
   pod 'JHButton'
   pod 'Masonry'
+  pod 'JHMediator'
 end

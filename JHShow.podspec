@@ -1,11 +1,11 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHShow'
-  s.version          = '1.1.7'
-  s.summary          = '轻松展示Toast以及loading.'
+  s.version          = '1.2.0'
+  s.summary          = '轻松展示Toast以及loading，添加普通弹窗以及模态方式弹窗.'
  
   s.description      = <<-DESC
-							图文Toast、Loading.
+							图文Toast、Loading.添加普通弹窗以及模态方式弹窗.
                        DESC
 
   s.homepage         = 'https://github.com/jackiehu/' 
@@ -15,10 +15,23 @@ Pod::Spec.new do |s|
  
   s.platform         = :ios, "9.0"
   s.ios.deployment_target = "9.0"
-  s.public_header_files = "JHShow/JHShow/Class/*.h"
-  s.source_files = 'JHShow/JHShow/Class/**/*.{h,m}'
+  # s.public_header_files = "JHShow/JHShow/Class/*.h"
+  # s.source_files = 'JHShow/JHShow/Class/**/*.{h,m}'
   s.frameworks   = "UIKit", "Foundation" #支持的框架
   s.requires_arc        = true
   s.dependency 'Masonry'
   s.dependency 'JHButton'
+  s.dependency 'JHMediator'
+
+   s.public_header_files = 'JHShow/JHShow/Class/*.h'
+   s.source_files =        'JHShow/JHShow/Class/*.{h,m}'
+   
+    s.subspec 'View' do |ss| 
+          ss.source_files          = 'JHShow/JHShow/Class/View/**/*' 
+          ss.public_header_files   = 'JHShow/JHShow/Class/View/*.{h}'
+    end
+    s.subspec 'VC' do |ss| 
+          ss.source_files          = 'JHShow/JHShow/Class/VC/**/*' 
+          ss.public_header_files   = 'JHShow/JHShow/Class/VC/*.{h}'
+    end
 end

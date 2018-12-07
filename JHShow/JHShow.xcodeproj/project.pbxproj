@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9135A5BF21BA415A00B593B6 /* JHPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9135A5BE21BA415A00B593B6 /* JHPopViewController.m */; };
+		9135A5C221BA418500B593B6 /* JHPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9135A5C121BA418500B593B6 /* JHPresentation.m */; };
 		9195BFA021A3B98200D0B1F2 /* JHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9195BF9F21A3B98200D0B1F2 /* JHPopView.m */; };
 		91E02A7F21A258D800C96841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A7E21A258D800C96841 /* AppDelegate.m */; };
 		91E02A8221A258D800C96841 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E02A8121A258D800C96841 /* ViewController.m */; };
@@ -23,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		26D08D1B603346DB340BE527 /* Pods_JHShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9135A5BD21BA415A00B593B6 /* JHPopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPopViewController.h; sourceTree = "<group>"; };
+		9135A5BE21BA415A00B593B6 /* JHPopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPopViewController.m; sourceTree = "<group>"; };
+		9135A5C021BA418500B593B6 /* JHPresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPresentation.h; sourceTree = "<group>"; };
+		9135A5C121BA418500B593B6 /* JHPresentation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPresentation.m; sourceTree = "<group>"; };
 		9195BF9E21A3B98200D0B1F2 /* JHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPopView.h; sourceTree = "<group>"; };
 		9195BF9F21A3B98200D0B1F2 /* JHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPopView.m; sourceTree = "<group>"; };
 		91E02A7A21A258D800C96841 /* JHShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +82,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9135A5BB21BA411200B593B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9195BF9E21A3B98200D0B1F2 /* JHPopView.h */,
+				9195BF9F21A3B98200D0B1F2 /* JHPopView.m */,
+				91E02A9D21A2C20000C96841 /* JHToastView.h */,
+				91E02A9E21A2C20000C96841 /* JHToastView.m */,
+				91E02A9721A261C700C96841 /* JHLoadingView.h */,
+				91E02A9821A261C700C96841 /* JHLoadingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9135A5BC21BA413500B593B6 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				9135A5BD21BA415A00B593B6 /* JHPopViewController.h */,
+				9135A5BE21BA415A00B593B6 /* JHPopViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		91E02A7121A258D800C96841 = {
 			isa = PBXGroup;
 			children = (
@@ -114,14 +142,12 @@
 		91E02A9321A25A6000C96841 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				9135A5BC21BA413500B593B6 /* VC */,
+				9135A5BB21BA411200B593B6 /* View */,
 				91E02A9421A25A9D00C96841 /* JHShow.h */,
 				91E02A9521A25A9D00C96841 /* JHShow.m */,
-				9195BF9E21A3B98200D0B1F2 /* JHPopView.h */,
-				9195BF9F21A3B98200D0B1F2 /* JHPopView.m */,
-				91E02A9D21A2C20000C96841 /* JHToastView.h */,
-				91E02A9E21A2C20000C96841 /* JHToastView.m */,
-				91E02A9721A261C700C96841 /* JHLoadingView.h */,
-				91E02A9821A261C700C96841 /* JHLoadingView.m */,
+				9135A5C021BA418500B593B6 /* JHPresentation.h */,
+				9135A5C121BA418500B593B6 /* JHPresentation.m */,
 				91E02A9A21A2A52800C96841 /* JHShowConfig.h */,
 				91E02A9B21A2A52800C96841 /* JHShowConfig.m */,
 			);
@@ -202,18 +228,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JHShow/Pods-JHShow-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JHShow/Pods-JHShow-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JHButton/JHButton.framework",
+				"${BUILT_PRODUCTS_DIR}/JHMediator/JHMediator.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JHButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JHMediator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JHShow/Pods-JHShow-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JHShow/Pods-JHShow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD60B3F3F81BBB6630FE2D5F /* [CP] Check Pods Manifest.lock */ = {
@@ -242,12 +270,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				91E02A9C21A2A52800C96841 /* JHShowConfig.m in Sources */,
+				9135A5C221BA418500B593B6 /* JHPresentation.m in Sources */,
 				91E02A8221A258D800C96841 /* ViewController.m in Sources */,
 				9195BFA021A3B98200D0B1F2 /* JHPopView.m in Sources */,
 				91E02A9921A261C700C96841 /* JHLoadingView.m in Sources */,
 				91E02A8D21A258DA00C96841 /* main.m in Sources */,
 				91E02A9621A25A9D00C96841 /* JHShow.m in Sources */,
 				91E02A9F21A2C20000C96841 /* JHToastView.m in Sources */,
+				9135A5BF21BA415A00B593B6 /* JHPopViewController.m in Sources */,
 				91E02A7F21A258D800C96841 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

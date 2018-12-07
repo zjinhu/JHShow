@@ -6,9 +6,7 @@
 //  Copyright © 2018 狄烨 . All rights reserved.
 //
 
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define iPhoneX     (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height >= 812)  //iPhoneX刘海系列
-#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
+#import "JHShowConfig.h"
 #import "JHPopView.h"
 static const CGFloat animationTime = 0.25;
 @interface JHPopView()<UIGestureRecognizerDelegate>
