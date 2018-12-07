@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger,PresentationType) {
 /// 键盘显示与隐藏监听，default：YES
 @property(nonatomic, assign) BOOL allowObserverForKeyBoard;
 
-/// 转场动画时间，默认0.5s
+/// 转场动画时间，默认0.35s
 @property(nonatomic, assign) NSTimeInterval transitionDuration;
 //popView的移除回调
 @property (nonatomic ,copy) void(^hiddenPresentation)(void);

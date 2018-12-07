@@ -33,7 +33,7 @@
                                                          presentingViewController:topVc];
     
     pt.allowObserverForKeyBoard = YES;
-    pt.transitionDuration = 0.5;
+    pt.transitionDuration = 0.35;
     pt.allowTapDismiss = YES;
     pt.toVc = toVc;
     pt.popView =popView;
@@ -51,7 +51,7 @@
                                                          presentingViewController:topVc];
     
     pt.allowObserverForKeyBoard = YES;
-    pt.transitionDuration = 0.5;
+    pt.transitionDuration = 0.35;
     pt.allowTapDismiss = YES;
     pt.toVc = toVc;
     pt.popView =contentView;
@@ -351,8 +351,8 @@
         toView.frame = hideFrame;
     }
     NSTimeInterval duration = [self transitionDuration:transitionContext];
-    
-    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.7f initialSpringVelocity:0.3f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+
+    [UIView animateWithDuration:duration animations:^{
         if (isPresenting){
             toView.frame = showFrame;
         }else{
