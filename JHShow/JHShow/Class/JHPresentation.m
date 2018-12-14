@@ -342,7 +342,7 @@
             break;
         case PresentationTypeBottom:
             hideFrame = CGRectMake(x, screenH, w, h);
-            showFrame = CGRectMake(x, screenH-HOME_INDICATOR_HEIGHT-h-y, w, h);
+            showFrame = CGRectMake(x, screenH-HOME_HEIGHT-h-y, w, h);
             break;
         default:
             break;

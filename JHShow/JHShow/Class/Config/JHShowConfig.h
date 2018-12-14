@@ -10,43 +10,16 @@
 #import <UIKit/UIKit.h>
 #import <JHButton/JHButton.h>
 
-// .h
-#define SingletonH  + (instancetype)shared ;
-// .m
-#define SingletonM(class) \
-static class *_showInstance; \
-+ (id)allocWithZone:(struct _NSZone *)zone { \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-_showInstance = [super allocWithZone:zone]; \
-}); \
-return _showInstance; \
-} \
-+ (instancetype)shared { \
-if (nil == _showInstance) { \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-_showInstance = [[class alloc] init]; \
-}); \
-} \
-return _showInstance; \
-} \
-- (id)copyWithZone:(NSZone *)zone{ \
-return _showInstance; \
-} \
-- (id)mutableCopyWithZone:(NSZone *)zone{ \
-return _showInstance; \
-} \
 
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define iPhoneX     (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height >= 812)  //iPhoneX刘海系列
-#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
+#define iS_iPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define iPhone_X     (iS_iPhone && [[UIScreen mainScreen] bounds].size.height >= 812)  //iPhoneX刘海系列
+#define HOME_HEIGHT (iPhone_X ? 34.f : 0.f)
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JHShowConfig : NSObject
 
-SingletonH
++ (instancetype)shared;
 
 #pragma mark - ///////////loading/////////////
 /** loading最大宽度 默认130 **/

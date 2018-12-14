@@ -10,7 +10,17 @@
 
 @implementation JHShowConfig
 
-SingletonM(JHShowConfig)
+static JHShowConfig *_showInstance;
+
++ (instancetype)shared {
+    if (nil == _showInstance) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _showInstance = [[JHShowConfig alloc] init];
+        });
+    }
+    return _showInstance;
+}
 
 - (instancetype)init{
     if (self = [super init]) {
