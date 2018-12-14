@@ -93,7 +93,7 @@
 
     switch (btn.tag) {
         case 1:
-            [JHShow showLoadingEventText:@"正在加载"];
+            [JHShow showLoadingText:@"正在加载"];
             break;
         case 2:
             [JHShow hidenLoading];
@@ -112,7 +112,6 @@
             break;}
         case 7:{
             [JHShow showPopViewCenter:self.popView animsted:YES];
-
             break;}
         case 8:{
             UITextView *redview = [[UITextView alloc] initWithFrame:CGRectMake(50, 90, 300, 200)];

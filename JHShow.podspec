@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHShow'
-  s.version          = '1.2.5'
+  s.version          = '1.3.0'
   s.summary          = '轻松展示Toast以及loading，添加普通弹窗以及模态方式弹窗.'
  
   s.description      = <<-DESC

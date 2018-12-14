@@ -75,7 +75,7 @@
         [[self window] addSubview:loadingView];
     }
     loadingView.text = text;
-    loadingView.userInteractionEnabled = isEnable;
+    loadingView.userInteractionEnabled = !isEnable;
     [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
