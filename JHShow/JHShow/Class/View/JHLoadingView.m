@@ -16,8 +16,6 @@
 
 @implementation JHLoadingView
 
-SingletonM(JHLoadingView)
-
 - (instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = [JHShowConfig shared].loadingBgColor;

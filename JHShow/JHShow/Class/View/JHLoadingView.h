@@ -13,6 +13,4 @@
 /** loading信息 */
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray *imageArray;
-/** loading图单例 */
-SingletonH
 @end

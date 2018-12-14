@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JHPopView.h"
-
+#import "JHLoadingView.h"
 @interface JHShow : NSObject
 #pragma mark-Toast
 /** 纯文本toast提示 */
@@ -17,29 +17,22 @@
 + (void)showText:(NSString *)text withImage:(UIImage *)image;
 
 #pragma mark - loading
+/** 展示loading图    默认允许用户交互*/
++ (JHLoadingView *)showLoading;
+/**带说明信息loading图  默认允许用户交互*/
++ (JHLoadingView *)showLoadingText:(NSString *)text;
+
+/** 在UIView上展示loading图    默认不允许用户交互*/
++ (JHLoadingView *)showLoadingOnView:(UIView *)view;
+/** 在UIView上展示loading图    默认不允许用户交互*/
++ (JHLoadingView *)showLoadingText:(NSString *)text onView:(UIView*)view;
 
 /** 移除loading图 */
 + (void)hidenLoading;
 
-/** 展示loading图    默认不允许用户交互*/
-+ (void)showLoading;
-/**
- 带说明信息loading图
- @param text 说明信息
- 默认不允许用户交互
- */
-+ (void)showLoadingText:(NSString *)text;
-
-/**
- 展示可交互的loading图
- */
-+ (void)showLoadingEvent;
-/**
- 展示可交互并且带说明信息的loading图
- @param text 说明信息
- */
-+ (void)showLoadingEventText:(NSString *)text;
-
+/** 移除UIview上loading图 */
++ (void)hidenLoading:(JHLoadingView *)loadingView;
++ (void)hidenLoadingOnView:(UIView *)view;
 #pragma mark - popview
 /**
  从屏幕中间弹出视图，可控制缩放动画

@@ -9,7 +9,7 @@
 #import <Masonry/Masonry.h>
 #import "JHShow.h"
 #import "JHToastView.h"
-#import "JHLoadingView.h"
+
 #import "JHShowConfig.h"
 
 @implementation JHShow
@@ -60,59 +60,63 @@
 
 #pragma mark - loading
 /**
- loading期间，允许或禁止用户交互
- @param isEnable YES:允许 NO:禁止
+ 展示可控制用户交互并且带说明信息的loading图
+ @param text 说明信息
+ @param view 展示位置
+ @param isEnable 是否允许用户交互
  */
-+ (void)loadingEnableEvent:(BOOL)isEnable{
-    [JHLoadingView shared].userInteractionEnabled = !isEnable;
++ (JHLoadingView *)showLoadingText:(NSString *)text onView:(UIView*)view enableEvent:(BOOL)isEnable{
+    JHLoadingView *loadingView = [JHLoadingView new];
+    if (view) {
+        [self hidenLoadingOnView:view];
+        [view addSubview:loadingView];
+    }else{
+        [self hidenLoading];
+        [[self window] addSubview:loadingView];
+    }
+    loadingView.text = text;
+    loadingView.userInteractionEnabled = isEnable;
+    [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    return loadingView;
+}
+
++ (JHLoadingView *)showLoadingText:(NSString *)text{
+    return [self showLoadingText:text onView:nil enableEvent:YES];
+}
+
++ (JHLoadingView *)showLoading{
+    return [self showLoadingText:nil onView:nil enableEvent:YES];
+}
+/**
+ loading图展示在UIview上
+ */
++ (JHLoadingView *)showLoadingText:(NSString *)text onView:(UIView*)view{
+    return [self showLoadingText:text onView:view enableEvent:NO];
+}
+
++ (JHLoadingView *)showLoadingOnView:(UIView *)view{
+    return [self showLoadingText:nil onView:view];
 }
 /** 移除loading图 */
 + (void)hidenLoading{
-    [[JHLoadingView shared] removeFromSuperview];
+    [self hidenLoadingOnView:[self window]];
 }
 
-/**
- 带说明信息loading图
- @param text 说明信息
- 默认无交互
- */
-+ (void)showLoadingText:(NSString *)text{
-    [[self window] addSubview:[JHLoadingView shared]];
-    [JHLoadingView shared].text = text;
-    [[JHLoadingView shared] mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
++ (void)hidenLoading:(JHLoadingView *)loadingView{
+    [loadingView removeFromSuperview];
 }
 
-/** 展示loading图 默认无交互 */
-+ (void)showLoading{
-    [JHShow showLoadingText:nil];
++ (void)hidenLoadingOnView:(UIView *)view{
+    NSEnumerator *subviewsEnum = [view.subviews reverseObjectEnumerator];
+    for (UIView *subview in subviewsEnum) {
+        if ([subview isKindOfClass:[JHLoadingView class]]) {
+            JHLoadingView *loadingView = (JHLoadingView *)subview ;
+            [self hidenLoading:loadingView];
+        }
+    }
 }
-
-/**
- 展示可控制用户交互并且带说明信息的loading图
- @param text 说明信息
- @param isEnable 是否允许用户交互
- */
-+ (void)showLoadingText:(NSString *)text enableEvent:(BOOL)isEnable{
-    [JHShow showLoadingText:text];
-    [JHShow loadingEnableEvent:isEnable];
-}
-/**
-  展示可交互的loading图
-  */
-+ (void)showLoadingEvent{
-    [JHShow showLoadingText:nil enableEvent:YES];
-}
-/**
- 展示可交互并且带说明信息的loading图
- @param text 说明信息
- */
-+ (void)showLoadingEventText:(NSString *)text{
-    [JHShow showLoadingText:text enableEvent:YES];
-}
-
-
 #pragma mark - popview
 
 +(JHPopView *)showPopViewCenter:(UIView *)contentView
