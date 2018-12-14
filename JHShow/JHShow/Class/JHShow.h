@@ -17,9 +17,9 @@
 + (void)showText:(NSString *)text withImage:(UIImage *)image;
 
 #pragma mark - loading
-/** 展示loading图    默认允许用户交互*/
+/** 在TopVC展示loading图    默认允许用户交互*/
 + (JHLoadingView *)showLoading;
-/**带说明信息loading图  默认允许用户交互*/
+/**在TopVC带说明信息loading图  默认允许用户交互*/
 + (JHLoadingView *)showLoadingText:(NSString *)text;
 
 /** 在UIView上展示loading图    默认不允许用户交互*/
@@ -27,9 +27,15 @@
 /** 在UIView上展示loading图    默认不允许用户交互*/
 + (JHLoadingView *)showLoadingText:(NSString *)text onView:(UIView*)view;
 
-/** 移除loading图 */
-+ (void)hidenLoading;
+/** 在UIWindow上展示loading图    默认允许用户交互*/
++ (JHLoadingView *)showLoadingOnWindow;
+/** 在UIWindow上展示loading图    默认允许用户交互*/
++ (JHLoadingView *)showLoadingTextOnWindow:(NSString *)text;
 
+/** 移除TopVC上loading图 */
++ (void)hidenLoading;
+/** 移除Window上loading图 */
++ (void)hidenLoadingOnWindow;
 /** 移除UIview上loading图 */
 + (void)hidenLoading:(JHLoadingView *)loadingView;
 + (void)hidenLoadingOnView:(UIView *)view;

@@ -9,9 +9,8 @@
 #import <Masonry/Masonry.h>
 #import "JHShow.h"
 #import "JHToastView.h"
-
 #import "JHShowConfig.h"
-
+#import "UIApplication+GetRootVC.h"
 @implementation JHShow
 
 +(UIWindow *)window{
@@ -70,6 +69,7 @@
     if (view) {
         [self hidenLoadingOnView:view];
         [view addSubview:loadingView];
+        [view bringSubviewToFront:loadingView];
     }else{
         [self hidenLoading];
         [[self window] addSubview:loadingView];
@@ -81,14 +81,6 @@
     }];
     return loadingView;
 }
-
-+ (JHLoadingView *)showLoadingText:(NSString *)text{
-    return [self showLoadingText:text onView:nil enableEvent:YES];
-}
-
-+ (JHLoadingView *)showLoading{
-    return [self showLoadingText:nil onView:nil enableEvent:YES];
-}
 /**
  loading图展示在UIview上
  */
@@ -99,13 +91,32 @@
 + (JHLoadingView *)showLoadingOnView:(UIView *)view{
     return [self showLoadingText:nil onView:view];
 }
-/** 移除loading图 */
-+ (void)hidenLoading{
-    [self hidenLoadingOnView:[self window]];
+
++ (JHLoadingView *)showLoadingText:(NSString *)text{
+    UIViewController *vc = [[UIApplication sharedApplication] currentViewController];
+    return [self showLoadingText:text onView:vc.view enableEvent:NO];
 }
 
-+ (void)hidenLoading:(JHLoadingView *)loadingView{
-    [loadingView removeFromSuperview];
++ (JHLoadingView *)showLoading{
+    return [self showLoadingText:nil];
+}
+
++ (JHLoadingView *)showLoadingOnWindow{
+    return [self showLoadingTextOnWindow:nil];
+}
+
++ (JHLoadingView *)showLoadingTextOnWindow:(NSString *)text{
+    return [self showLoadingText:text onView:nil enableEvent:YES];
+}
+
+/** 移除loading图 */
++ (void)hidenLoading{
+    UIViewController *vc = [[UIApplication sharedApplication] currentViewController];
+    [self hidenLoadingOnView:vc.view];
+}
+
++ (void)hidenLoadingOnWindow{
+    [self hidenLoadingOnView:[self window]];
 }
 
 + (void)hidenLoadingOnView:(UIView *)view{
@@ -117,6 +128,11 @@
         }
     }
 }
+
++ (void)hidenLoading:(JHLoadingView *)loadingView{
+    [loadingView removeFromSuperview];
+}
+
 #pragma mark - popview
 
 +(JHPopView *)showPopViewCenter:(UIView *)contentView
