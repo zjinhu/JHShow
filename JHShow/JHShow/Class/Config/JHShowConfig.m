@@ -53,6 +53,23 @@ static JHShowConfig *_showInstance;
         _toastType = JHImageButtonTypeTop;
         _toastMaxWidth = 200;
         _toastPadding = 10;
+        ////////////alert////////////////
+        _alertMaxWidth = 280;
+        _alertMaxHeight = 500;
+        _alertCornerRadius = 5;
+        _alertType = JHImageButtonTypeTop;
+        _alertSpace = 5;
+        _alertTitleFont = [UIFont systemFontOfSize:17 weight:UIFontWeightMedium];
+        _alertTitleColor = [UIColor blackColor];
+        _alertTextFont = [UIFont systemFontOfSize:15];
+        _alertTextColor = [UIColor blackColor];
+        _alertButtonFont= [UIFont systemFontOfSize:17];
+        _alertLeftColor= [UIColor blackColor];
+        _alertRightColor= [UIColor blackColor];
+        _alertBgColor= [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        _alertShadowColor= [UIColor clearColor];
+        _alertShadowOpacity = 0.5;
+        _alertShadowRadius = 5;
         
     }
     return self ;

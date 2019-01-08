@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910A99D421E4B9F5006A8523 /* UIViewController+DropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 910A99D321E4B9F5006A8523 /* UIViewController+DropdownView.m */; };
+		910A99D721E4BA0A006A8523 /* JHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 910A99D521E4BA0A006A8523 /* JHAlertView.m */; };
 		9135A5BF21BA415A00B593B6 /* JHPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9135A5BE21BA415A00B593B6 /* JHPopViewController.m */; };
 		9135A5C221BA418500B593B6 /* JHPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9135A5C121BA418500B593B6 /* JHPresentation.m */; };
 		9195BFA021A3B98200D0B1F2 /* JHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9195BF9F21A3B98200D0B1F2 /* JHPopView.m */; };
@@ -25,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		26D08D1B603346DB340BE527 /* Pods_JHShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		910A99D221E4B9F5006A8523 /* UIViewController+DropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DropdownView.h"; sourceTree = "<group>"; };
+		910A99D321E4B9F5006A8523 /* UIViewController+DropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DropdownView.m"; sourceTree = "<group>"; };
+		910A99D521E4BA0A006A8523 /* JHAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAlertView.m; sourceTree = "<group>"; };
+		910A99D621E4BA0A006A8523 /* JHAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAlertView.h; sourceTree = "<group>"; };
 		9135A5BD21BA415A00B593B6 /* JHPopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPopViewController.h; sourceTree = "<group>"; };
 		9135A5BE21BA415A00B593B6 /* JHPopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPopViewController.m; sourceTree = "<group>"; };
 		9135A5C021BA418500B593B6 /* JHPresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPresentation.h; sourceTree = "<group>"; };
@@ -85,6 +91,8 @@
 		9135A5BB21BA411200B593B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				910A99D621E4BA0A006A8523 /* JHAlertView.h */,
+				910A99D521E4BA0A006A8523 /* JHAlertView.m */,
 				9195BF9E21A3B98200D0B1F2 /* JHPopView.h */,
 				9195BF9F21A3B98200D0B1F2 /* JHPopView.m */,
 				91E02A9D21A2C20000C96841 /* JHToastView.h */,
@@ -156,6 +164,8 @@
 				9135A5BB21BA411200B593B6 /* View */,
 				91E02A9421A25A9D00C96841 /* JHShow.h */,
 				91E02A9521A25A9D00C96841 /* JHShow.m */,
+				910A99D221E4B9F5006A8523 /* UIViewController+DropdownView.h */,
+				910A99D321E4B9F5006A8523 /* UIViewController+DropdownView.m */,
 				9135A5C021BA418500B593B6 /* JHPresentation.h */,
 				9135A5C121BA418500B593B6 /* JHPresentation.m */,
 			);
@@ -278,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91E02A9C21A2A52800C96841 /* JHShowConfig.m in Sources */,
+				910A99D721E4BA0A006A8523 /* JHAlertView.m in Sources */,
 				9135A5C221BA418500B593B6 /* JHPresentation.m in Sources */,
 				91E02A8221A258D800C96841 /* ViewController.m in Sources */,
 				9195BFA021A3B98200D0B1F2 /* JHPopView.m in Sources */,
@@ -286,6 +297,7 @@
 				91E02A9621A25A9D00C96841 /* JHShow.m in Sources */,
 				91E02A9F21A2C20000C96841 /* JHToastView.m in Sources */,
 				9135A5BF21BA415A00B593B6 /* JHPopViewController.m in Sources */,
+				910A99D421E4B9F5006A8523 /* UIViewController+DropdownView.m in Sources */,
 				91E02A7F21A258D800C96841 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

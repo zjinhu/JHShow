@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JHPopView.h"
 #import "JHLoadingView.h"
+#import "JHAlertView.h"
 @interface JHShow : NSObject
 #pragma mark-Toast
 /** 纯文本toast提示 */
@@ -58,5 +59,27 @@
 移除popView
  */
 + (void)hidenPopView;
+
+#pragma mark - alert
+/**
+ @param title alert标题
+ @param image 标题图片
+ @param message 信息
+ @param leftTitle 左侧按钮文案/不传就是只有一个按钮
+ @param rigthTitle 右侧按钮文案
+ @param leftBlock 左侧按钮回调
+ @param rightBlock 右侧按钮回调
+ */
++ (JHAlertView *)showAlertWithTitle:(NSString *)title
+                               image:(UIImage *)image
+                         messageText:(id)message
+                     leftButtonTitle:(NSString *)leftTitle
+                    rightButtonTitle:(NSString *)rigthTitle
+                           leftBlock:(dispatch_block_t)leftBlock
+                          rightBlock:(dispatch_block_t)rightBlock;
+/**
+ 移除Alert
+ */
++(void)dismissAlert;
 @end
 

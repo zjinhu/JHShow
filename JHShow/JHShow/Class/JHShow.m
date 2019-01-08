@@ -13,14 +13,6 @@
 #import "UIApplication+GetRootVC.h"
 @implementation JHShow
 
-+(UIWindow *)window{
-    UIWindow *window =  [[[UIApplication sharedApplication] windows] lastObject];
-    if(window && !window.hidden){
-        return window;
-    }
-    window = [UIApplication sharedApplication].delegate.window;
-    return window;
-}
 
 #pragma mark-Toast
 /** 纯文本toast提示 */
@@ -31,7 +23,7 @@
 + (void)showText:(NSString *)text withImage:(UIImage *)image{
     
     //显示之前隐藏还在显示的视图
-    NSEnumerator *subviewsEnum = [[self window].subviews reverseObjectEnumerator];
+    NSEnumerator *subviewsEnum = [[UIApplication sharedApplication].mainWindow.subviews reverseObjectEnumerator];
     for (UIView *subview in subviewsEnum) {
         if ([subview isKindOfClass:[JHToastView class]]) {
             JHToastView *showView = (JHToastView *)subview ;
@@ -42,7 +34,7 @@
     JHToastView *toastView = [[JHToastView alloc] init];
     toastView.text = text;
     toastView.image = image;
-    [[self window] addSubview:toastView];
+    [[UIApplication sharedApplication].mainWindow addSubview:toastView];
     [toastView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(toastView.superview);
     }];
@@ -70,9 +62,10 @@
         [self hidenLoadingOnView:view];
         [view addSubview:loadingView];
         [view bringSubviewToFront:loadingView];
+        loadingView.layer.zPosition = MAXFLOAT;
     }else{
         [self hidenLoading];
-        [[self window] addSubview:loadingView];
+        [[UIApplication sharedApplication].mainWindow addSubview:loadingView];
     }
     loadingView.text = text;
     loadingView.userInteractionEnabled = !isEnable;
@@ -116,7 +109,7 @@
 }
 
 + (void)hidenLoadingOnWindow{
-    [self hidenLoadingOnView:[self window]];
+    [self hidenLoadingOnView:[UIApplication sharedApplication].mainWindow];
 }
 
 + (void)hidenLoadingOnView:(UIView *)view{
@@ -151,4 +144,47 @@
     [JHPopView hidenPopView];
 }
 
+
+#pragma mark - alert
+
++ (JHAlertView *)showAlertWithTitle:(NSString *)title
+                               image:(UIImage *)image
+                         messageText:(id)message
+                     leftButtonTitle:(NSString *)leftTitle
+                    rightButtonTitle:(NSString *)rigthTitle
+                           leftBlock:(dispatch_block_t)leftBlock
+                          rightBlock:(dispatch_block_t)rightBlock{
+    
+    JHAlertView *alertView = [[JHAlertView alloc] initWithTitle:title
+                                                            image:image
+                                                      messageText:message
+                                                  leftButtonTitle:leftTitle
+                                                 rightButtonTitle:rigthTitle];
+    alertView.leftBlock = leftBlock;
+    alertView.rightBlock = rightBlock;
+    
+    alertView.dismissBlock = ^{
+        [self dismissAlert];
+    };
+    
+    [self dismissAlert];
+    
+    [[UIApplication sharedApplication].mainWindow addSubview:alertView];
+    
+    [alertView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    return alertView;
+}
+
++(void)dismissAlert{
+    NSEnumerator *subviewsEnum = [[UIApplication sharedApplication].mainWindow.subviews reverseObjectEnumerator];
+    for (UIView *subview in subviewsEnum) {
+        if ([subview isKindOfClass:[JHAlertView class]]) {
+            JHAlertView *alertView = (JHAlertView *)subview ;
+            [alertView removeFromSuperview];
+        }
+    }
+}
 @end

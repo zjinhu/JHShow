@@ -14,6 +14,12 @@
 #define iS_iPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define iPhone_X     (iS_iPhone && [[UIScreen mainScreen] bounds].size.height >= 812)  //iPhoneX刘海系列
 #define HOME_HEIGHT (iPhone_X ? 34.f : 0.f)
+#define NAV_BAR_HEIGHT (iPhone_X ? 88.f : 64.f)
+
+#define ColorFromName(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -79,7 +85,36 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) JHImageButtonType toastType;
 /** Toast背景与内容之间的内边距 默认10**/
 @property (nonatomic,assign) CGFloat toastPadding;
-
+#pragma mark - ////////////alert////////////////
+/** alert最大宽度 **/
+@property (nonatomic,assign) CGFloat alertMaxWidth;
+/** alert最大高度 **/
+@property (nonatomic,assign) CGFloat alertMaxHeight;
+/** alert圆角 **/
+@property (nonatomic,assign) CGFloat alertCornerRadius;
+/** alert图文混排样式 **/
+@property (nonatomic,assign) JHImageButtonType alertType;
+/** alert图文间距 **/
+@property (nonatomic,assign) CGFloat alertSpace;
+/** alert标题字体 **/
+@property (nonatomic,strong) UIFont *alertTitleFont;
+/**  alert标题字体颜色 **/
+@property (nonatomic,strong) UIColor *alertTitleColor;
+/** alert信息字体 **/
+@property (nonatomic,strong) UIFont *alertTextFont;
+/**  alert信息字体颜色 **/
+@property (nonatomic,strong) UIColor *alertTextColor;
+/** alert按钮字体 **/
+@property (nonatomic,strong) UIFont *alertButtonFont;
+/**  alert按钮字体颜色 **/
+@property (nonatomic,strong) UIColor *alertLeftColor;
+@property (nonatomic,strong) UIColor *alertRightColor;
+/** alert背景颜色 **/
+@property (nonatomic,strong) UIColor *alertBgColor;
+/** 阴影 **/
+@property (nonatomic,strong) UIColor *alertShadowColor;
+@property (nonatomic,assign) CGFloat alertShadowOpacity;
+@property (nonatomic,assign) CGFloat alertShadowRadius;
 @end
 
 NS_ASSUME_NONNULL_END
