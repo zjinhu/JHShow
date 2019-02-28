@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - ///////////loading/////////////
 /** loading最大宽度 默认130 **/
 @property (nonatomic,assign) CGFloat loadingMaxWidth;
+/** loading最大高度 **/
+@property (nonatomic,assign) CGFloat loadingMaxHeight;
 /** 圆角大小 默认5 **/
 @property (nonatomic,assign) CGFloat loadingCornerRadius;
 /** 加载框主体颜色 默认白色 **/
@@ -63,6 +65,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - ////////////toast////////////////
 /** Toast最大宽度  默认200 **/
 @property (nonatomic,assign) CGFloat toastMaxWidth;
+/** Toast最大高度 **/
+@property (nonatomic,assign) CGFloat toastMaxHeight;
 /** Toast默认停留时间 默认2秒 **/
 @property (nonatomic,assign) CGFloat toastShowTime;
 /** Toast圆角 默认5 **/

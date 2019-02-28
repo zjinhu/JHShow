@@ -48,8 +48,8 @@
         }];
         
         [_toastButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.equalTo(_toastButton.superview).offset([JHShowConfig shared].toastPadding);
-            make.bottom.right.equalTo(_toastButton.superview).offset(-[JHShowConfig shared].toastPadding);
+            make.top.left.equalTo(self.toastButton.superview).offset([JHShowConfig shared].toastPadding);
+            make.bottom.right.equalTo(self.toastButton.superview).offset(-[JHShowConfig shared].toastPadding);
         }];
     }
     return self;

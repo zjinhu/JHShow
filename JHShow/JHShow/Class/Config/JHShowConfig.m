@@ -26,6 +26,7 @@ static JHShowConfig *_showInstance;
     if (self = [super init]) {
         ///////////loading/////////////
         _loadingMaxWidth = 130;
+        _loadingMaxHeight = 130;
         _loadingCornerRadius = 5;
         _loadingTintColor= [UIColor whiteColor];
         _loadingTextFont= [UIFont systemFontOfSize:15];
@@ -52,6 +53,7 @@ static JHShowConfig *_showInstance;
         _toastTextColor= [UIColor whiteColor];
         _toastType = JHImageButtonTypeTop;
         _toastMaxWidth = 200;
+        _toastMaxHeight = 500;
         _toastPadding = 10;
         ////////////alert////////////////
         _alertMaxWidth = 280;

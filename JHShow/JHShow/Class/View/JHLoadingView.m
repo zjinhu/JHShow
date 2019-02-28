@@ -76,10 +76,10 @@
         }];
         
         [_loadingButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_loadingButton.superview).offset([JHShowConfig shared].loadingVerticalPadding);
-            make.left.equalTo(_loadingButton.superview).offset([JHShowConfig shared].loadingHorizontalPadding);
-            make.bottom.equalTo(_loadingButton.superview).offset(-[JHShowConfig shared].loadingVerticalPadding);
-            make.right.equalTo(_loadingButton.superview).offset(-[JHShowConfig shared].loadingHorizontalPadding);
+            make.top.equalTo(self.loadingButton.superview).offset([JHShowConfig shared].loadingVerticalPadding);
+            make.left.equalTo(self.loadingButton.superview).offset([JHShowConfig shared].loadingHorizontalPadding);
+            make.bottom.equalTo(self.loadingButton.superview).offset(-[JHShowConfig shared].loadingVerticalPadding);
+            make.right.equalTo(self.loadingButton.superview).offset(-[JHShowConfig shared].loadingHorizontalPadding);
         }];
     }
     return self;

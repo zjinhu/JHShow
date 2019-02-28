@@ -67,7 +67,7 @@ static const CGFloat kButtonHeight = 50.0f;
         _alertContentLabel.font = [JHShowConfig shared].alertTextFont;
         [bgView addSubview:_alertContentLabel];
         [_alertContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_alertTitle.mas_bottom).offset(10);
+            make.top.equalTo(self.alertTitle.mas_bottom).offset(10);
             make.left.equalTo(bgView.mas_left).offset(20);
             make.right.equalTo(bgView.mas_right).offset(-20);
         }];
@@ -87,7 +87,7 @@ static const CGFloat kButtonHeight = 50.0f;
         lineView.backgroundColor = ColorFromName(0xe3e3e3);
         [bgView addSubview:lineView];
         [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_alertContentLabel.mas_bottom).offset(20);
+            make.top.equalTo(self.alertContentLabel.mas_bottom).offset(20);
             make.left.equalTo(bgView.mas_left);
             make.right.equalTo(bgView.mas_right);
             make.height.mas_equalTo((1 / [UIScreen mainScreen].scale));
@@ -124,9 +124,9 @@ static const CGFloat kButtonHeight = 50.0f;
         vLineView.backgroundColor = ColorFromName(0xe3e3e3);
         [bgView addSubview:vLineView];
         [vLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_rightBtn.mas_top);
+            make.top.equalTo(self.rightBtn.mas_top);
             make.centerX.equalTo(bgView.mas_centerX);
-            make.bottom.equalTo(_rightBtn.mas_bottom);
+            make.bottom.equalTo(self.rightBtn.mas_bottom);
             make.width.mas_equalTo((1 / [UIScreen mainScreen].scale));
         }];
         
