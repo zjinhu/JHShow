@@ -67,7 +67,9 @@
 }
 
 - (void)dismiss {
-    [self.presentedViewController dismissViewControllerAnimated:YES completion:_hiddenPresentation];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:self.hiddenPresentation];
+    });
 }
 
 //| ------------------------------第一步内容----------------------------------------------
