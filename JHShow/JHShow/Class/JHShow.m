@@ -87,7 +87,7 @@
 
 + (JHLoadingView *)showLoadingText:(NSString *)text{
     UIViewController *vc = [[UIApplication sharedApplication] currentViewController];
-    return [self showLoadingText:text onView:vc.view enableEvent:NO];
+    return [self showLoadingText:text onView:vc.view enableEvent:YES];
 }
 
 + (JHLoadingView *)showLoading{

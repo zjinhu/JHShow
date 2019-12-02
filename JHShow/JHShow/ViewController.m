@@ -39,10 +39,17 @@
     [btn1 setTitle:@"loading text" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:btn4];
+    btn4.tag = 4;
+    btn4.frame = CGRectMake(100, 100, 80, 44);
+    [btn4 setTitle:@"loading" forState:UIControlStateNormal];
+    [btn4 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.view addSubview:btn2];
     btn2.tag = 2;
-    btn2.frame = CGRectMake(180, 100, 80, 44);
+    btn2.frame = CGRectMake(200, 100, 80, 44);
     [btn2 setTitle:@"hid loading" forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -54,17 +61,11 @@
     [btn3 setTitle:@"toast" forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.view addSubview:btn4];
-    btn4.tag = 4;
-    btn4.frame = CGRectMake(50, 200, 80, 44);
-    [btn4 setTitle:@"loading" forState:UIControlStateNormal];
-    [btn4 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn5 = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.view addSubview:btn5];
     btn5.tag = 5;
-    btn5.frame = CGRectMake(160, 200, 100, 44);
+    btn5.frame = CGRectMake(160, 160, 100, 44);
     [btn5 setTitle:@"toast image" forState:UIControlStateNormal];
     [btn5 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -72,21 +73,21 @@
     [self.view addSubview:btn6];
     btn6.tag = 6;
     btn6.frame = CGRectMake(160, 300, 100, 44);
-    [btn6 setTitle:@"pop" forState:UIControlStateNormal];
+    [btn6 setTitle:@"pop right" forState:UIControlStateNormal];
     [btn6 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn7 = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.view addSubview:btn7];
     btn7.tag = 7;
     btn7.frame = CGRectMake(160, 350, 100, 44);
-    [btn7 setTitle:@"pop" forState:UIControlStateNormal];
+    [btn7 setTitle:@"pop center" forState:UIControlStateNormal];
     [btn7 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     UIButton *btn8 = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.view addSubview:btn8];
     btn8.tag = 8;
     btn8.frame = CGRectMake(160, 450, 100, 44);
-    [btn8 setTitle:@"pop" forState:UIControlStateNormal];
+    [btn8 setTitle:@"pop bottom" forState:UIControlStateNormal];
     [btn8 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)backButtonClicked:(UIButton *)btn {
