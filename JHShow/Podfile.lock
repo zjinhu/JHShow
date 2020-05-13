@@ -1,7 +1,7 @@
 PODS:
-  - JHButton (1.2.0):
+  - JHButton (1.3.2):
     - Masonry
-  - JHMediator (1.2.0)
+  - JHMediator (1.5.0)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
@@ -10,16 +10,16 @@ DEPENDENCIES:
   - Masonry
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - JHButton
     - JHMediator
     - Masonry
 
 SPEC CHECKSUMS:
-  JHButton: 9bf5a5d7fb450aa9d36d82fc654bbf09a222b740
-  JHMediator: 53e2d792737d6b74e31291514d5abeda5303623c
+  JHButton: b6a709c33dbbe3493e436dc1364b8715647bb451
+  JHMediator: 72cf4a06c91de1cbae957f1bd2669690b03eba28
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 8ca1bf0baaf225e4035d5d06dc3beee04d64eb03
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.9.1

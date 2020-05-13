@@ -5,12 +5,11 @@
 //  Created by HU on 2018/7/18.
 //  Copyright © 2018年 HU. All rights reserved.
 //
-
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "JHMediator.h"
 #import <objc/runtime.h>
-
-#import "UIApplication+GetRootVC.h"
-
+#import <objc/message.h>
 @implementation JHMediator
 #pragma mark - 通过URL调起APP内任意页面
 + (void)baseOpenURL:(NSURL *)url{
@@ -28,6 +27,8 @@
     }
 }
 
+/// 根据URL的quary去转换参数字典
+/// @param string 转字典
 + (NSDictionary *)getDicFromString:(NSString *)string{
     if (string.length>0&&[string containsString:@"="]) {
         NSArray *keyValues = [string componentsSeparatedByString:@"&"];
@@ -45,18 +46,38 @@
     UIViewController *instance = [self initVC:vcName dic:dic];
     if (instance) {
         instance.hidesBottomBarWhenPushed=YES;
-        [[[UIApplication sharedApplication] currentNavigationController] pushViewController:instance animated:YES];
+        [[self currentNavigationController] pushViewController:instance animated:YES];
     }
+}
++ (void)basePush:(UIViewController *)fromVC toName:(NSString *)vcName dic:(NSDictionary *)dic{
+    UIViewController *instance = [self initVC:vcName dic:dic];
+    if (instance && fromVC) {
+        instance.hidesBottomBarWhenPushed=YES;
+        [fromVC.navigationController pushViewController:instance animated:YES];
+    }
+
 }
 #pragma mark - Present控制器
 + (void)basePresent:(NSString *)vcName dic:(NSDictionary *)dic{
     id instance = [self initVC:vcName dic:dic];
     if (instance) {
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:instance];
-        [[[UIApplication sharedApplication] currentViewController] presentViewController:nav animated:YES completion:nil];
+        nav.navigationBar.barTintColor = [UIColor whiteColor];
+        nav.navigationBar.backgroundColor = [UIColor whiteColor];
+        nav.navigationBar.translucent = NO;
+        [[self currentViewController] presentViewController:nav animated:YES completion:nil];
     }
 }
-
++ (void)basePresent:(UIViewController *)fromVC toName:(NSString *)vcName dic:(NSDictionary *)dic{
+    id instance = [self initVC:vcName dic:dic];
+    if (instance && fromVC) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:instance];
+        nav.navigationBar.barTintColor = [UIColor whiteColor];
+        nav.navigationBar.backgroundColor = [UIColor whiteColor];
+        nav.navigationBar.translucent = NO;
+        [fromVC presentViewController:nav animated:YES completion:nil];
+    }
+}
 #pragma mark - 初始化指定名字的VC
 + (id)initVC:(NSString *)vcName{
     id vc = [self initClass:vcName];
@@ -64,12 +85,10 @@
         if ([vc isKindOfClass:[UIViewController class]]) {
             return vc;
         }
-        NSString *error = [NSString stringWithFormat:@"Class %@不是controller",vcName];
-        NSLog(@"%@",error);
+        [self alertMessage:[NSString stringWithFormat:@"Class %@不是controller",vcName]];
         return nil;
     }else{
-        NSString *error = [NSString stringWithFormat:@"Class %@不存在",vcName];
-        NSLog(@"%@",error);
+        [self alertMessage:[NSString stringWithFormat:@"Class %@不存在",vcName]];
         return nil;
     }
     return nil;
@@ -96,13 +115,14 @@
 + (id)initClass:(NSString *)name{
     //类名(对象名)
     if (!name||name.length==0) {
-        NSLog(@"请传入class名");
+        [self alertMessage:@"请传入class名"];
         return nil;
     }
     NSString *class = name;
     const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
     Class newClass = objc_getClass(className);
-    if (!newClass) {
+    if (!newClass) { 
+        NSLog(@"Class %@不存在",name);
         return nil;
     }
     // 创建对象(写到这里已经可以进行随机页面跳转了)
@@ -166,108 +186,6 @@
 }
 
 #pragma mark - 消息转发调用方法
-
-///**
-// *调用某个类中的实例方法
-// */
-//+ (id)actionMethodFromObj:(id)objc Selector:(NSString *)selector Prarms:(NSArray*)params NeedReturn:(BOOL)needReturn{
-//    return  [self msgSendToObj:objc Selector:NSSelectorFromString(selector) Prarms:params NeedReturn:needReturn];
-//}
-//
-//+ (id)msgSendToObj:(id)obj Selector:(SEL)selector Prarms:(NSArray*)params NeedReturn:(BOOL)needReturn{
-//    ///注释:老方式,限制传递参数个数
-//    //    id returnValue = nil;
-//    //    NSInteger paramsCount = params.count;
-//    //    NSMutableArray *params_M = [NSMutableArray arrayWithArray:params];
-//    //    //
-//    //    while (params_M.count < 5) {
-//    //        [params_M addObject:@""];
-//    //    }
-//    //    params = params_M;
-//    //    //
-//    //    if (obj && selector && [obj respondsToSelector:selector] && paramsCount <= 5) {
-//    //        if (needReturn) {
-//    //            returnValue = ((id (*) (id, SEL, id, id , id, id, id)) (void *)objc_msgSend) (obj, selector, params[0], params[1], params[2], params[3], params[4]);
-//    //        }else{
-//    //            ((void (*) (id, SEL, id, id , id, id, id)) (void *)objc_msgSend)(obj, selector,  params[0], params[1], params[2], params[3], params[4]);
-//    //        }
-//    //    }
-//    //    return returnValue;
-//    id value = nil;
-//    if (obj && selector) {
-//        if ([obj respondsToSelector:selector]) {
-//            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[obj class] instanceMethodSignatureForSelector:selector]];
-//            [invocation setSelector:selector];
-//            [invocation setTarget:obj];
-//            for (int i=0; i < params.count; i++) {
-//                id ref = params[i];
-//                [invocation setArgument:&ref atIndex:2+i];
-//            }
-//            [invocation invoke];//perform 的传参表达方式
-//            if(needReturn){//获得返回值
-//                void *vvl = nil;
-//                [invocation getReturnValue:&vvl];
-//                value = (__bridge id)vvl;
-//            }
-//        }else{
-//#ifdef DEBUG
-//            NSLog(@"msgToTarget unRespondsToSelector -->>> %@",obj);
-//#endif
-//        }
-//    }
-//    return value;
-//}
-///**
-// *调用某个类中的类方法idz
-// */
-//+ (id)actionMethodFromClass:(NSString *)className Selector:(NSString *)selector Prarms:(NSArray*)params NeedReturn:(BOOL)needReturn{
-//    return  [self msgSendToClass:NSClassFromString(className) Selector:NSSelectorFromString(selector) Prarms:params NeedReturn:needReturn];
-//}
-//+ (id)msgSendToClass:(Class)cClass Selector:(SEL)selector Prarms:(NSArray*)params NeedReturn:(BOOL)needReturn{
-//    ///注释:老方式,限制传递参数个数
-//    //    id returnValue = nil;
-//    //    NSInteger paramsCount = params.count;
-//    //    NSMutableArray *params_M = [NSMutableArray arrayWithArray:params];
-//    //    //
-//    //    while (params_M.count < 5) {
-//    //        [params_M addObject:@""];
-//    //    }
-//    //    params = params_M;
-//    //    //
-//    //    Method method = class_getClassMethod(cClass, selector);
-//    //    //
-//    //    if (cClass && selector && (int)method != 0 && paramsCount <= 5) {
-//    //        if (needReturn) {
-//    //            returnValue = ((id (*) (id, SEL, id, id , id, id, id)) (void *)objc_msgSend) (cClass, selector, params[0], params[1], params[2], params[3], params[4]);
-//    //        }else{
-//    //            ((void (*) (id, SEL, id, id , id, id, id)) (void *)objc_msgSend)(cClass, selector,  params[0], params[1], params[2], params[3], params[4]);
-//    //        }
-//    //    }
-//    //    return returnValue;
-//    id value = nil;
-//    Method method = class_getClassMethod(cClass, selector);
-//    if((int)method != 0){
-//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[cClass methodSignatureForSelector:selector]];
-//        [invocation setSelector:selector];
-//        [invocation setTarget:cClass];
-//        for (int i=0; i < params.count; i++) {
-//            id ref = params[i];
-//            [invocation setArgument:&ref atIndex:2+i];
-//        }
-//        [invocation invoke];//perform 的传参表达方式
-//        if(needReturn){//获得返回值
-//            void *vvl = nil;
-//            [invocation getReturnValue:&vvl];
-//            value = (__bridge id)vvl;
-//        }
-//    }else{
-//#ifdef DEBUG
-//        NSLog(@"msgToClass unRespondsToSelector -->>> %@ %@",cClass,method);
-//#endif
-//    }
-//    return value;
-//}
-
 /**
  *调用某个类中的实例方法
  */
@@ -391,7 +309,7 @@
 
 // 获取方法返回值
 + (id)getMethodArgument:(NSInvocation *)invocation signature:(NSMethodSignature *)signature {
-    id returnValue = nil;
+    void * returnValue = nil;
     const char * paramType = signature.methodReturnType;
     
     if(!strcmp(paramType, @encode(id))) {
@@ -406,11 +324,72 @@
         void * par = NULL;
         par = reallocf(par, valueSize);
         [invocation getReturnValue:par];
-        returnValue = [NSValue valueWithBytes:par objCType:paramType];
+        returnValue = (__bridge void *)([NSValue valueWithBytes:par objCType:paramType]);
     }
-    
-    return returnValue;
+    return (__bridge id)(returnValue);
 }
+
++(void)alertMessage:(NSString *)message{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) { }];
+    [alertController addAction:cancelAction];
+    [[self currentViewController] presentViewController:alertController animated:YES completion:^{ }];
+}
+
+#pragma mark - 获取当前顶层VC
++ (UIWindow *)mainWindow {
+    //适配iOS13的 SceneDelegate， AppDelegate添加 @property (strong, nonatomic) UIWindow *window;
+    for (UIWindow * obj in [UIApplication sharedApplication].windows) {
+        if (obj.windowLevel == UIWindowLevelNormal) {
+            return obj;
+        }
+    }
+    return [UIApplication sharedApplication].keyWindow;
+}
+
++ (UIViewController *)currentViewController {
+    UIViewController *rootViewController = [self.mainWindow rootViewController];
+    return [self getCurrentViewControllerFrom:rootViewController];
+}
+
+#pragma mark - 获取当前显示的VC
++ (UIViewController *) getCurrentViewControllerFrom:(UIViewController *) vc {
+    if (vc.presentedViewController) {
+        // Return presented view controller
+        return [self getCurrentViewControllerFrom:vc.presentedViewController];
+    } else if( [vc isKindOfClass:[UISplitViewController class]]) {
+        // Return right hand side
+        UISplitViewController *svc = (UISplitViewController*) vc;
+        if (svc.viewControllers.count > 0){
+            return [self getCurrentViewControllerFrom:svc.viewControllers.lastObject];
+        }else{
+            return vc;
+        }
+    } else if ([vc isKindOfClass:[UINavigationController class]]) {
+        // Return top view
+        UINavigationController *svc = (UINavigationController*) vc;
+        if (svc.viewControllers.count > 0){
+            return [self getCurrentViewControllerFrom:svc.topViewController];
+        }else{
+            return vc;
+        }
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        // Return visible view
+        UITabBarController *svc = (UITabBarController*) vc;
+        if (svc.viewControllers.count > 0){
+            return [self getCurrentViewControllerFrom:svc.selectedViewController];
+        }else{
+            return vc;
+        }
+    } else {
+        // Unknown view controller type, return last child view controller
+        return vc;
+    }
+}
++ (UINavigationController *)currentNavigationController {
+    return [[self currentViewController] navigationController];
+}
+
 
 #pragma mark - 获取本类所有 ‘属性‘ 的数组
 /** 程序运行的时候动态的获取当前类的属性列表
@@ -589,5 +568,4 @@ const char *jh_getProtocolListKey = "jh_getProtocolListKey";
     
     return objc_getAssociatedObject(self, jh_getProtocolListKey);
 }
-
 @end

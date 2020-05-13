@@ -7,10 +7,10 @@
 //
 #import <UIKit/UIKit.h>
 #import <Masonry/Masonry.h>
+#import <JHMediator/JHMediator.h>
 #import "JHShow.h"
 #import "JHToastView.h"
 #import "JHShowConfig.h"
-#import "UIApplication+GetRootVC.h"
 @implementation JHShow
 
 
@@ -23,7 +23,7 @@
 + (void)showText:(NSString *)text withImage:(UIImage *)image{
     
     //显示之前隐藏还在显示的视图
-    NSEnumerator *subviewsEnum = [[UIApplication sharedApplication].mainWindow.subviews reverseObjectEnumerator];
+    NSEnumerator *subviewsEnum = [[JHMediator mainWindow].subviews reverseObjectEnumerator];
     for (UIView *subview in subviewsEnum) {
         if ([subview isKindOfClass:[JHToastView class]]) {
             JHToastView *showView = (JHToastView *)subview ;
@@ -34,7 +34,7 @@
     JHToastView *toastView = [[JHToastView alloc] init];
     toastView.text = text;
     toastView.image = image;
-    [[UIApplication sharedApplication].mainWindow addSubview:toastView];
+    [[JHMediator mainWindow] addSubview:toastView];
     [toastView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(toastView.superview);
     }];
@@ -65,7 +65,7 @@
         loadingView.layer.zPosition = MAXFLOAT;
     }else{
         [self hidenLoading];
-        [[UIApplication sharedApplication].mainWindow addSubview:loadingView];
+        [[JHMediator mainWindow] addSubview:loadingView];
     }
     loadingView.text = text;
     loadingView.userInteractionEnabled = !isEnable;
@@ -86,7 +86,7 @@
 }
 
 + (JHLoadingView *)showLoadingText:(NSString *)text{
-    UIViewController *vc = [[UIApplication sharedApplication] currentViewController];
+    UIViewController *vc = [JHMediator currentViewController];
     return [self showLoadingText:text onView:vc.view enableEvent:YES];
 }
 
@@ -104,12 +104,12 @@
 
 /** 移除loading图 */
 + (void)hidenLoading{
-    UIViewController *vc = [[UIApplication sharedApplication] currentViewController];
+    UIViewController *vc = [JHMediator currentViewController];
     [self hidenLoadingOnView:vc.view];
 }
 
 + (void)hidenLoadingOnWindow{
-    [self hidenLoadingOnView:[UIApplication sharedApplication].mainWindow];
+    [self hidenLoadingOnView:[JHMediator mainWindow]];
 }
 
 + (void)hidenLoadingOnView:(UIView *)view{
@@ -169,7 +169,7 @@
     
     [self dismissAlert];
     
-    [[UIApplication sharedApplication].mainWindow addSubview:alertView];
+    [[JHMediator mainWindow] addSubview:alertView];
     
     [alertView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -179,7 +179,7 @@
 }
 
 +(void)dismissAlert{
-    NSEnumerator *subviewsEnum = [[UIApplication sharedApplication].mainWindow.subviews reverseObjectEnumerator];
+    NSEnumerator *subviewsEnum = [[JHMediator mainWindow].subviews reverseObjectEnumerator];
     for (UIView *subview in subviewsEnum) {
         if ([subview isKindOfClass:[JHAlertView class]]) {
             JHAlertView *alertView = (JHAlertView *)subview ;

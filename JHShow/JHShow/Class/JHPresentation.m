@@ -8,7 +8,7 @@
 #import "JHShowConfig.h"
 #import "JHPresentation.h"
 #import "JHPopViewController.h"
-#import "UIApplication+GetRootVC.h"
+#import <JHMediator/JHMediator.h>
 @interface JHPresentation () <UIViewControllerAnimatedTransitioning>
 @property(nonatomic, assign) BOOL isAnimating; // 响应键盘动画中
 /** 蒙板 */
@@ -23,7 +23,7 @@
 
 @implementation JHPresentation
 + (instancetype)showView:(UIView *)popView{
-    UIViewController *topVc = [[UIApplication sharedApplication] currentViewController];
+    UIViewController *topVc = [JHMediator currentViewController];
     
     JHPopViewController *toVc = [[JHPopViewController alloc] init];
     [popView layoutIfNeeded];
@@ -41,7 +41,7 @@
     return pt;
 }
 + (instancetype)showView:(UIView *)contentView withShowType:(PresentationType)type{
-    UIViewController *topVc = [[UIApplication sharedApplication] currentViewController];
+    UIViewController *topVc = [JHMediator currentViewController];
     
     JHPopViewController *toVc = [[JHPopViewController alloc] init];
     [contentView layoutIfNeeded];

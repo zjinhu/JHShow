@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-JHShow/Pods-JHShow-frameworks.sh
+${BUILT_PRODUCTS_DIR}/JHButton/JHButton.framework
+${BUILT_PRODUCTS_DIR}/JHMediator/JHMediator.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework

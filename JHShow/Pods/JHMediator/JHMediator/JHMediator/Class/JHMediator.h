@@ -24,7 +24,7 @@ if (@available(iOS 11.0, *)) {\
 (*((Type *)par));\
 })\
 
-#import <Foundation/Foundation.h>
+
 
 @interface JHMediator : NSObject
 
@@ -50,11 +50,15 @@ if (@available(iOS 11.0, *)) {\
  *
  */
 + (void)basePush:(NSString *)vcName dic:(NSDictionary *)dic;
+
++ (void)basePush:(UIViewController *)fromVC toName:(NSString *)vcName dic:(NSDictionary *)dic;
 /**
  * 当前VC Present一个有NAV的VC
  *
  */
 + (void)basePresent:(NSString *)vcName dic:(NSDictionary *)dic;
+
++ (void)basePresent:(UIViewController *)fromVC toName:(NSString *)vcName dic:(NSDictionary *)dic;
 /**
  *  初始化指定名字的类
  *
@@ -96,4 +100,11 @@ if (@available(iOS 11.0, *)) {\
                    Selector:(NSString *)selector
                      Prarms:(NSArray*)params;
 
+
+/// 获取当前window
++ (UIWindow *)mainWindow;
+/// 获取当前最上层VC
++ (UIViewController *)currentViewController;
+/// 获取当前导航栏VC
++ (UINavigationController *)currentNavigationController;
 @end

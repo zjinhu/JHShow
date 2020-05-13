@@ -11,7 +11,6 @@
 #endif
 
 #import "JHMediator.h"
-#import "UIApplication+GetRootVC.h"
 
 FOUNDATION_EXPORT double JHMediatorVersionNumber;
 FOUNDATION_EXPORT const unsigned char JHMediatorVersionString[];
